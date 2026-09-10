@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Portfolio de Noel Hernández Morffi — Desarrollador de videojuegos en formación especializado en C#, Unity y desarrollo multiplayer.">
+
+    <title>Noel Hernández Morffi | Game Developer</title>
+
+    <style>
+        /* ========================================
+           GENERAL
+        ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0a0a0f;
+            color: #e8e8ed;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
+
+
+        /* ========================================
+           NAVEGACIÓN
+        ======================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #20202a;
+        }
+
+        nav {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #8b7cff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aaaab5;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+
+        /* ========================================
+           HERO
+        ======================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 70px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(91, 75, 180, 0.18),
+                    transparent 35%
+                ),
+                #0a0a0f;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-label {
+            color: #8b7cff;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 86px);
+            line-height: 1.05;
+
+            margin-bottom: 25px;
+
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: #8b7cff;
+        }
+
+        .hero-description {
+            color: #a9a9b4;
+            font-size: 20px;
+            max-width: 700px;
+
+            margin-bottom: 30px;
+        }
+
+        .tech-line {
+            color: #777783;
+            margin-bottom: 35px;
+            font-size: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 22px;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+            font-size: 14px;
+
+            transition: 0.25s;
+        }
+
+        .button-primary {
+            background: #8b7cff;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #7665ed;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid #363640;
+            color: #ddd;
+        }
+
+        .button-secondary:hover {
+            border-color: #8b7cff;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* ========================================
+           SECCIONES
+        ======================================== */
+
+        section {
+            padding: 110px 0;
+            border-top: 1px solid #1d1d25;
+        }
+
+        .section-label {
+            color: #8b7cff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        .section-description {
+            color: #9999a5;
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+
+        /* ========================================
+           SOBRE MÍ
+        ======================================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .about-text p {
+            color: #a8a8b3;
+            margin-bottom: 18px;
+        }
+
+        .about-highlight {
+            border-left: 2px solid #8b7cff;
+            padding-left: 25px;
+        }
+
+        .about-highlight h3 {
+            margin-bottom: 15px;
+        }
+
+        .about-highlight p {
+            color: #9999a5;
+        }
+
+
+        /* ========================================
+           PROYECTO PRINCIPAL
+        ======================================== */
+
+        .project {
+            background: #101017;
+
+            border: 1px solid #252530;
+            border-radius: 14px;
+
+            overflow: hidden;
+        }
+
+        .project-image {
+            height: 420px;
+
+            background:
+                linear-gradient(
+                    rgba(15, 15, 25, 0.2),
+                    rgba(15, 15, 25, 0.7)
+                ),
+                #171722;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #666674;
+            font-size: 14px;
+        }
+
+        .project-image span {
+            border: 1px dashed #444451;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .project-content {
+            padding: 40px;
+        }
+
+        .project-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .project-subtitle {
+            color: #8b7cff;
+            margin-bottom: 25px;
+        }
+
+        .project-description {
+            color: #a3a3ae;
+            max-width: 800px;
+            margin-bottom: 35px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+
+            margin-bottom: 35px;
+        }
+
+        .feature {
+            background: #15151d;
+            border: 1px solid #252530;
+            border-radius: 8px;
+
+            padding: 18px;
+        }
+
+        .feature strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: #898995;
+            font-size: 14px;
+        }
+
+
+        /* ========================================
+           TECNOLOGÍAS
+        ======================================== */
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech {
+            border: 1px solid #30303a;
+            background: #111118;
+
+            padding: 9px 15px;
+
+            border-radius: 6px;
+
+            color: #bdbdc7;
+            font-size: 14px;
+        }
+
+
+        /* ========================================
+           OTROS PROYECTOS
+        ======================================== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #101017;
+
+            border: 1px solid #252530;
+            border-radius: 12px;
+
+            padding: 30px;
+
+            transition: 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #49425f;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .project-card .card-tech {
+            color: #8b7cff;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .project-card p {
+            color: #92929e;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .project-card ul {
+            padding-left: 20px;
+            color: #92929e;
+            font-size: 14px;
+        }
+
+
+        /* ========================================
+           FORMACIÓN Y EXPERIENCIA
+        ======================================== */
+
+        .timeline {
+            display: grid;
+            gap: 25px;
+        }
+
+        .timeline-item {
+            padding: 25px;
+
+            border-left: 2px solid #8b7cff;
+            background: #101017;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .date {
+            color: #8b7cff;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item p {
+            color: #94949f;
+        }
+
+
+        /* ========================================
+           CONTACTO
+        ======================================== */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact .section-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        footer {
+            border-top: 1px solid #1d1d25;
+            padding: 30px 0;
+
+            text-align: center;
+
+            color: #666672;
+            font-size: 13px;
+        }
+
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                height: 280px;
+            }
+
+            .project-content {
+                padding: 25px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- ======================================
+         NAVEGACIÓN
+    ======================================= -->
+
+    <header>
+        <nav>
+
+            <a href="#inicio" class="logo">
+                NOEL<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyecto">Proyecto</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#formacion">Formación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- ======================================
+         HERO
+    ======================================= -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        Game Developer · C# · Unity
+                    </div>
+
+                    <h1>
+                        Noel Hernández<br>
+                        <span>Morffi</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Programador en formación centrado en el desarrollo
+                        de videojuegos con Unity y C#.
+                    </p>
+
+                    <p class="tech-line">
+                        C# · Unity · Multiplayer · SQL · Aseprite
+                    </p>
+
+                    <div class="buttons">
+
+                        <a href="#proyecto" class="button button-primary">
+                            Ver proyecto
+                        </a>
+
+                        <a
+                            href="https://github.com/noelhdezmorffi"
+                            target="_blank"
+                            class="button button-secondary">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             SOBRE MÍ
+        ======================================= -->
+
+        <section id="sobre-mi">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Sobre mí
+                </div>
+
+                <h2 class="section-title">
+                    Programación + videojuegos
+                </h2>
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+
+                        <p>
+                            Soy programador con experiencia en soporte técnico
+                            y desarrollo de soluciones mediante SQL, y formación
+                            en programación de sistemas informáticos.
+                        </p>
+
+                        <p>
+                            Actualmente estoy ampliando mis conocimientos en
+                            desarrollo de videojuegos mediante proyectos
+                            personales con Unity y C#.
+                        </p>
+
+                        <p>
+                            Mi principal proyecto es un RPG 2D multijugador
+                            online en el que trabajo en gameplay, animaciones,
+                            escenarios, sistemas de juego y networking.
+                        </p>
+
+                    </div>
+
+                    <div class="about-highlight">
+
+                        <h3>
+                            ¿Qué me interesa?
+                        </h3>
+
+                        <p>
+                            Me interesa especialmente la programación de
+                            gameplay, el desarrollo de sistemas de juego,
+                            el networking multiplayer y seguir aprendiendo
+                            nuevas tecnologías relacionadas con el desarrollo
+                            de videojuegos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             PROYECTO PRINCIPAL
+        ======================================= -->
+
+        <section id="proyecto">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Proyecto principal
+                </div>
+
+                <h2 class="section-title">
+                    RPG 2D Multijugador Online
+                </h2>
+
+                <p class="section-description">
+                    Proyecto personal desarrollado con Unity y C#,
+                    enfocado en gameplay 2D, arquitectura de sistemas
+                    y networking multiplayer.
+                </p>
+
+
+                <div class="project">
+
+                    <!--
+                    MÁS ADELANTE sustituiremos este bloque
+                    por una captura real de tu videojuego.
+                    -->
+
+                    <div class="project-image">
+
+                        <span>
+                            CAPTURA DEL VIDEOJUEGO
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h3 class="project-title">
+                            RPG 2D Multiplayer
+                        </h3>
+
+                        <div class="project-subtitle">
+                            Unity 6.3 · C# · Netcode · Unity Relay
+                        </div>
+
+                        <p class="project-description">
+                            RPG 2D multijugador online desarrollado como
+                            proyecto personal. El objetivo del proyecto
+                            es desarrollar de forma práctica diferentes
+                            sistemas de un videojuego y aprender cómo
+                            integrarlos dentro de una experiencia
+                            multijugador.
+                        </p>
+
+
+                        <div class="features">
+
+                            <div class="feature">
+
+                                <strong>
+                                    🎮 Gameplay
+                                </strong>
+
+                                <p>
+                                    Movimiento en cuatro direcciones,
+                                    colisiones y sistemas básicos
+                                    del jugador.
+                                </p>
+
+                            </div>
+
+
+                            <div class="feature">
+
+                                <strong>
+                                    🎨 Animaciones 2D
+                                </strong>
+
+                                <p>
+                                    Animaciones mediante Blend Trees
+                                    y sprites creados con Aseprite.
+                                </p>
+
+                            </div>
+
+
+                            <div class="feature">
+
+                                <strong>
+                                    🌐 Multiplayer
+                                </strong>
+
+                                <p>
+                                    Lobby, Unity Netcode for GameObjects
+                                    y conexión mediante Unity Relay.
+                                </p>
+
+                            </div>
+
+
+                            <div class="feature">
+
+                                <strong>
+                                    🗺️ Mundo 2D
+                                </strong>
+
+                                <p>
+                                    Tilemaps, escenario, colisiones y
+                                    ordenamiento visual mediante posición Y.
+                                </p>
+
+                            </div>
+
+
+                            <div class="feature">
+
+                                <strong>
+                                    📷 Cámara
+                                </strong>
+
+                                <p>
+                                    Cámara del juego implementada
+                                    utilizando Cinemachine.
+                                </p>
+
+                            </div>
+
+
+                            <div class="feature">
+
+                                <strong>
+                                    👤 Personajes
+                                </strong>
+
+                                <p>
+                                    Sistema de selección de personajes
+                                    dentro del entorno multijugador.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <h3 style="margin-bottom: 15px;">
+                            Tecnologías
+                        </h3>
+
+                        <div class="tech-grid">
+
+                            <span class="tech">Unity 6.3</span>
+                            <span class="tech">C#</span>
+                            <span class="tech">Input System</span>
+                            <span class="tech">Netcode for GameObjects</span>
+                            <span class="tech">Unity Relay</span>
+                            <span class="tech">Cinemachine</span>
+                            <span class="tech">Aseprite</span>
+
+                        </div>
+
+
+                        <div style="margin-top: 35px;" class="buttons">
+
+                            <!--
+                            CAMBIA ESTE ENLACE POR LA URL REAL
+                            DE LA DEMO CUANDO LA TENGAS.
+                            -->
+
+                            <a
+                                href="#"
+                                class="button button-primary">
+                                ▶ Jugar demo
+                            </a>
+
+
+                            <!--
+                            CAMBIA ESTE ENLACE POR LA URL DEL
+                            REPOSITORIO DE TU VIDEOJUEGO.
+                            -->
+
+                            <a
+                                href="#"
+                                class="button button-secondary">
+                                Ver código en GitHub
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             TECNOLOGÍAS
+        ======================================= -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-label">
+                    Tecnologías
+                </div>
+
+                <h2 class="section-title">
+                    Herramientas y conocimientos
+                </h2>
+
+                <p class="section-description">
+                    Tecnologías y herramientas con las que he trabajado
+                    durante mi formación, experiencia profesional y
+                    proyectos personales.
+                </p>
+
+
+                <h3 style="margin-bottom: 15px;">
+                    Programación
+                </h3>
+
+                <div class="tech-grid" style="margin-bottom: 35px;">
+
+                    <span class="tech">C#</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">PHP</span>
+                    <span class="tech">SQL</span>
+                    <span class="tech">JavaScript</span>
+
+                </div>
+
+
+                <h3 style="margin-bottom: 15px;">
+                    Desarrollo de videojuegos
+                </h3>
+
+                <div class="tech-grid" style="margin-bottom: 35px;">
+
+                    <span class="tech">Unity</span>
+                    <span class="tech">Unity Input System</span>
+                    <span class="tech">Netcode for GameObjects</span>
+                    <span class="tech">Unity Relay</span>
+                    <span class="tech">Cinemachine</span>
+                    <span class="tech">Aseprite</span>
+
+                </div>
+
+
+                <h3 style="margin-bottom: 15px;">
+                    Bases de datos
+                </h3>
+
+                <div class="tech-grid" style="margin-bottom: 35px;">
+
+                    <span class="tech">SQL Server</span>
+                    <span class="tech">MySQL</span>
+
+                </div>
+
+
+                <h3 style="margin-bottom: 15px;">
+                    Herramientas
+                </h3>
+
+                <div class="tech-grid">
+
+                    <span class="tech">Git</span>
+                    <span class="tech">GitHub</span>
+                    <span class="tech">Visual Studio</span>
+                    <span class="tech">WordPress</span>
+                    <span class="tech">VirtualBox</span>
+                    <span class="tech">Microsoft Office</span>
+                    <span class="tech">Excel</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             OTROS PROYECTOS
+        ======================================= -->
+
+        <section id="proyectos">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Otros proyectos
+                </div>
+
+                <h2 class="section-title">
+                    También he trabajado en...
+                </h2>
+
+                <div class="projects-grid">
+
+
+                    <!-- MOTOR DE BÚSQUEDA -->
+
+                    <div class="project-card">
+
+                        <h3>
+                            Motor de búsqueda
+                        </h3>
+
+                        <div class="card-tech">
+                            C# · TF-IDF
+                        </div>
+
+                        <p>
+                            Motor de búsqueda desarrollado en C#
+                            durante mi formación en la Facultad de
+                            Matemática y Computación.
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                Ranking de relevancia mediante TF-IDF.
+                            </li>
+
+                            <li>
+                                Operadores de aparición en las consultas.
+                            </li>
+
+                            <li>
+                                Carga inicial de documentos.
+                            </li>
+
+                        </ul>
+
+                        <div style="margin-top: 25px;">
+
+                            <a
+                                href="https://github.com/noelhdezmorffi"
+                                target="_blank"
+                                class="button button-secondary">
+                                Ver GitHub
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FUTURO PROYECTO -->
+
+                    <div class="project-card">
+
+                        <h3>
+                            Próximamente
+                        </h3>
+
+                        <div class="card-tech">
+                            Más proyectos en desarrollo
+                        </div>
+
+                        <p>
+                            Actualmente estoy centrado en seguir
+                            desarrollando mi RPG 2D y ampliar mis
+                            conocimientos en desarrollo de videojuegos.
+                        </p>
+
+                        <p>
+                            Esta sección irá creciendo a medida que
+                            complete nuevos proyectos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             FORMACIÓN / EXPERIENCIA
+        ======================================= -->
+
+        <section id="formacion">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Formación y experiencia
+                </div>
+
+                <h2 class="section-title">
+                    Mi trayectoria
+                </h2>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item">
+
+                        <h3>
+                            IFCT0609 — Programación de Sistemas Informáticos
+                        </h3>
+
+                        <div class="date">
+                            Certificado de Profesionalidad · Grado C de FP
+                        </div>
+
+                        <p>
+                            Formación especializada en programación de
+                            sistemas informáticos.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <h3>
+                            Bachillerato
+                        </h3>
+
+                        <div class="date">
+                            Nota media: 9,75
+                        </div>
+
+                        <p>
+                            Formación de Bachillerato con una nota media
+                            de 9,75.
+                        </p>
+
+                    </div>
+
+
+                    <div class="timeline-item">
+
+                        <h3>
+                            Soporte Técnico N3
+                        </h3>
+
+                        <div class="date">
+                            Empresa de Tecnologías de la Información
+                        </div>
+
+                        <p>
+                            Resolución de incidencias de software
+                            utilizando SQL, desarrollo y optimización
+                            de consultas y scripts, soporte técnico
+                            presencial y remoto, migración de bases
+                            de datos, documentación técnica y formación
+                            a usuarios.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================
+             CONTACTO
+        ======================================= -->
+
+        <section id="contacto" class="contact">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Contacto
+                </div>
+
+                <h2 class="section-title">
+                    ¿Hablamos?
+                </h2>
+
+                <p class="section-description">
+                    Estoy interesado en seguir aprendiendo y
+                    desarrollándome en el ámbito del desarrollo
+                    de videojuegos.
+                </p>
+
+
+                <div class="contact-links">
+
+                    <a
+                        href="mailto:noelhdezmorffi00@gmail.com"
+                        class="button button-primary">
+                        Enviarme un email
+                    </a>
+
+                    <a
+                        href="https://github.com/noelhdezmorffi"
+                        target="_blank"
+                        class="button button-secondary">
+                        GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================
+         FOOTER
+    ======================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Noel Hernández Morffi
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
